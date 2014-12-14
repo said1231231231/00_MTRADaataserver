@@ -1,0 +1,123 @@
+﻿<Window x:Class="MTRADataServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Конфигуратор" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        xmlns:local="clr-namespace:MTRADataServer">
+
+    <Window.Resources>
+        <HierarchicalDataTemplate DataType="{x:Type local:Node}" ItemsSource="{Binding Children}">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding IsChecked}" Uid="{Binding Id}" PreviewMouseLeftButtonDown="OnMouseLeftButtonDown"/>
+                <TextBlock Text="{Binding Text}" Uid="{Binding Id}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_1"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <Style TargetType="TreeViewItem">
+            <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Background="White" BorderBrush="Black">
+            <MenuItem Header="Действия" >
+                <Separator/>
+                <MenuItem Name="miActionExit" Header ="Выход" Click="MenuItem_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <!--ColumnDefinition Width="16*"/-->
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="135*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TabControl Grid.Column="0">
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                            <TextBlock>Клиент</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TreeView Name="TvwConfigPresent" Width="Auto" MinWidth="100" Grid.ColumnSpan="2">
+                        <TreeViewItem Header="Проект (нет открытых проектов)" Name="TVIMainPresent" IsExpanded="True"/>
+                    </TreeView>
+                </TabItem>
+
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                            <TextBlock>DataServer</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TreeView Name="TvwConfigNative" Width="Auto" MinWidth="100" Grid.ColumnSpan="2">
+                        <TreeViewItem Header="Проект (нет открытых проектов)" Name="TVIMainNative" IsExpanded="True"/>
+                    </TreeView>
+                </TabItem>
+                
+                <TabItem >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                            <TextBlock>Устройство</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+
+                    <TreeView Name="TvwConfigHardware" Width="Auto" Grid.Column="0" MinWidth="100" Grid.ColumnSpan="2">
+                        <TreeViewItem Header="Проект (нет открытых проектов)" Name="TVIMainHardware" IsExpanded="True"/>
+                    </TreeView>
+                </TabItem>
+            </TabControl>
+
+            <GridSplitter Width="5" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center"></GridSplitter>
+
+            <!--Border Grid.Column="2" Margin="3" BorderBrush="SteelBlue" BorderThickness="1">
+                <Frame Name="FrmContent"  />
+            </Border-->
+            <Border Grid.Column="2" Margin="3" BorderBrush="SteelBlue" BorderThickness="1">
+                <DataGrid Name="DGTags" AutoGenerateColumns="False" ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Guid" Binding="{Binding Path=TagGuid}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Path=TagName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Тип" Binding="{Binding Path=TagType}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Значение" Binding="{Binding Path=TagValueAsString}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Качество" Binding="{Binding Path=TagQuality}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Метка времени" Binding="{Binding Path=TimeStamp, StringFormat={}{0:s}}"></DataGridTextColumn>
+                        <!--DataGridTemplateColumn Header="Доп. действия">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="AddActionsOverTag_Click">Дополнительно</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn-->
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+        <StatusBar Grid.Row="2">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <TextBlock Name="SBCurrentAction">Текущее действие</TextBlock>
+            <StatusBarItem Grid.Column="3" Margin="-28,-1,0,-8">
+                <TextBlock>Область задач</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

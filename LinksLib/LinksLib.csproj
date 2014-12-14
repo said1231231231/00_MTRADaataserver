@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E91D27A4-4F0C-4E64-BA3E-4146BDC41FD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LinksLib</RootNamespace>
+    <AssemblyName>LinksLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LinksHT2NT\LinkHT2NTBase.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_BCDPack_2_Int32.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_bytearray_2_Boolean.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_DateTime4_FieldMT_2_DateTime.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_Int_2_Short.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_MOA_ECU.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_Real_2_Single.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_u32_data1970_reverse_2_DateTime.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_MOA_ECU\LinkHT2NT_UInt_2_UInt16.cs" />
+    <Compile Include="LinksHT2NT\LinksHT2NT_OPC_ECU\SimpleLinkHT2NT.cs" />
+    <Compile Include="LinksNT2PT\LinkNT2PTBase.cs" />
+    <Compile Include="LinksNT2PT\Link_NatimeFormula.cs" />
+    <Compile Include="LinksNT2PT\Link_NativeFormula_2_Analog.cs" />
+    <Compile Include="LinksNT2PT\Link_NativeFormula_2_Discret.cs" />
+    <Compile Include="LinksNT2PT\Link_NativeType_2_Analog.cs" />
+    <Compile Include="LinksNT2PT\Link_NativeType_2_Discret.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonClassesLib\CommonClassesLib.csproj">
+      <Project>{c2dd329c-18ae-48c6-b159-eed8954fd003}</Project>
+      <Name>CommonClassesLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Expression\Expression.csproj">
+      <Project>{b930f065-dc12-4efa-9673-d09bf6124178}</Project>
+      <Name>Expression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardwareConfigurationLib\HardwareConfigurationLib.csproj">
+      <Project>{8af3d954-490d-4fbf-b2d0-a9b4ed3d5656}</Project>
+      <Name>HardwareConfigurationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NativeConfigurationLib\NativeConfigurationLib.csproj">
+      <Project>{6b2bbe2b-2934-4e6b-8118-bbf3f39ef48b}</Project>
+      <Name>NativeConfigurationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentationConfigurationLib\PresentationConfigurationLib.csproj">
+      <Project>{69e10654-1799-4f90-8be9-866cc0d236e5}</Project>
+      <Name>PresentationConfigurationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceSourceLib\TraceSourceLib\TraceSourceLib.csproj">
+      <Project>{248134c6-b5a0-4c36-aaba-85b5ab0d04ba}</Project>
+      <Name>TraceSourceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

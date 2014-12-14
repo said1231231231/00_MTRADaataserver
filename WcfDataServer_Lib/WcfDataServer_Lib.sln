@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDataServer_Lib", "WcfDataServer_Lib\WcfDataServer_Lib.csproj", "{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

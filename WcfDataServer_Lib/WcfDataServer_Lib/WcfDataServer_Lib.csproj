@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9A1F720-0AE5-4C72-BCD3-A6E11ECE4FBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WcfDataServer_Lib</RootNamespace>
+    <AssemblyName>WcfDataServer_Lib</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataBaseLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External DLLs\DataBaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="TraceSourceLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External DLLs\TraceSourceLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMDInfo.cs" />
+    <Compile Include="IWcfDataServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WcfDataServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommandLib\CommandLib.csproj">
+      <Project>{88BABEDC-5321-49F0-89BB-8F04BC100F7B}</Project>
+      <Name>CommandLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CommonClasses\CommonClassesLib.csproj">
+      <Project>{9d6bb8b3-0020-4edf-a39f-8f8ea2135946}</Project>
+      <Name>CommonClassesLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataServer\DataServer.csproj">
+      <Project>{fb9f95b4-c9c5-40ca-858b-64ac592a077d}</Project>
+      <Name>DataServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DispatcherMessages\DispatcherMessages.csproj">
+      <Project>{731ae268-e046-410c-bfcc-12ae2717981b}</Project>
+      <Name>DispatcherMessages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HMI_MT_Settings\HMI_MT_Settings.csproj">
+      <Project>{33c82c32-cdff-4d8b-aea2-65a21b25e1e3}</Project>
+      <Name>HMI_MT_Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InterfaceLibraryCFG\InterfaceLibrary.csproj">
+      <Project>{5c6c09da-9642-4416-b208-db9527a08bbb}</Project>
+      <Name>InterfaceLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Juornals\Juornals.csproj">
+      <Project>{bcf9d0aa-8697-47fa-9d34-12410a17baec}</Project>
+      <Name>Juornals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TagListObservable_lib\TagListObservable_lib.csproj">
+      <Project>{7dc79c18-9e34-4908-b8fa-4a4c809e9c2b}</Project>
+      <Name>TagListObservable_lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\uvs_MOA\uvs_MOA.csproj">
+      <Project>{1889efa5-a0d2-458c-ae5f-8f41d1ac8609}</Project>
+      <Name>uvs_MOA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
