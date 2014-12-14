@@ -25,7 +25,6 @@
 
         <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Background="White" BorderBrush="Black">
             <MenuItem Header="Действия" >
-                <Separator/>
                 <MenuItem Name="miActionExit" Header ="Выход" Click="MenuItem_Click" />
             </MenuItem>
         </Menu>

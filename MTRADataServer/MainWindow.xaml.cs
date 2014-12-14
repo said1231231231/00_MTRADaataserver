@@ -424,6 +424,7 @@ namespace MTRADataServer
                 DGTags.ItemsSource = null;
 
                 TagsRequest.Clear();
+                TagsRequest.Clear();
 
                 //HardwareConfiguration.DeviceHardware dh = DictionaryTreeViewObject[id].Item2 as HardwareConfiguration.DeviceHardware;
 
